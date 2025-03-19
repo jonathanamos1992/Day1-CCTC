@@ -1,1 +1,54 @@
+Linux
 
+devices look for configuration in /etc
+
+man pages 
+search /
+forward n
+back b
+variable does not need $ dollar sign
+
+
+Looking at who I am in the /etc/passwd file with cat
+
+if you can't cd into a directory, you can still list what's in the directory
+
+The sticky bit removes the ability to delete files unless the user attempting is the owner of the file or root
+
+GREP
+can be used with REGEX
+
+AWK
+-see examples and practice
+
+Questions
+
+List content directories
+-ls
+
+switch for human readable format
+-h
+
+Pipe will pipe the standard output from "text" to another command as standard input
+
+
+What is the directory that contains executable programs (binaries) which are needed in single user mode, to bring the system up or to repair it
+-/bin
+
+
+What is the absolute path to the directory which contains non-essential binaries that are accessible by standard users as well as root?
+-/usr/bin
+
+NON-ESSENTIAL
+/usr
+
+An absolute path to a dirzectory which contains binaries only accessible by the root user, or users in the root group.
+/usr/sbin
+
+Absolute path for binary cat man-page
+ -w, --where, --path, --location
+              Don't actually display the manual page, but do print the
+              location of the source nroff file that would be formatted.
+              If the -a option is also used, then print the locations of
+              all source files that match the search criteria.
+man -w cat
