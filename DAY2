@@ -7,3 +7,27 @@ Get-ChildItem -Force
 
 Windows file maps hostnames to ip address
 - hosts
+
+Linux
+
+devices look for configuration in /etc
+
+man pages 
+search /
+forward n
+back b
+variable does not need $ dollar sign
+
+
+Looking at who I am in the /etc/passwd file with cat
+
+if you can't cd into a directory, you can still list what's in the directory
+
+The sticky bit removes the ability to delete files unless the user attempting is the owner of the file or root
+
+GREP
+can be used with REGEX
+
+AWK
+-see examples and practice
+
