@@ -1,3 +1,8 @@
+STACK 7
+10.50.24.107
+
+
+
 Listing All User Accounts and Their SIDs:
 Open Command Prompt as an administrator. 
 Type wmic useraccount get name,sid and press Enter. 
