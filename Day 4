@@ -1,0 +1,27 @@
+Windows Boot Process
+
+Windows 2003 and older used NTLDR or New Technology Loader
+
+Windows 7 Service Pack 1 and newer uses bootmgr or New Technology Loader
+
+Starting Session 0 - System components
+
+Starting Session 1 - User components
+
+What is the name of the bootloader, with extension, we are using on all of the Windows machines in this environment?
+-winload.exe
+
+QUESTION
+WHY DO SOME MACHINES STILL USE BIOS WHEN UEFI IS NEWER
+
+What file saves the memory state to the hard drive when going into hibernation?
+-hiberfil.sys
+
+What bootloader is responsible for restoring the system to its original state after hibernation?
+
+How to get out of Safe Mode
+Use the Windows + R keys to pull up the Command Prompt.
+Type in “msconfig” and hit Enter to display the menu.
+Choose the “Boot” tab.
+Uncheck the “Safe boot” box if it is selected.
+Restart your computer.
