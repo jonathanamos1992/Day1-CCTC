@@ -1,0 +1,38 @@
+2 commands 
+
+xxd - hex dump of values you're looking at ex. MBR (hex value dump)
+dd - bit for bit copy of whatever you're inputting, hash value (disk duplicate)
+
+student@linux-opstation-kspt:~$ dd if=/dev/vda of=MBRcopy bs=512 count=1
+
+use dd to copy and xxxd to look at hex dump
+
+
+Each hex pair contains a value of 8 bits when used to represent memory. The range from 0x00000000 to 0x00000010 in hexadecimal represents addresses in memory or positions in data. This range includes the starting address (0x00000000) and ends at the address (0x00000010).
+
+How many bytes could the range 0x00000000 - 0x00000010 contain?
+-17
+
+How large is the Master Boot Record and what directory is it located in?
+
+Flag format: #InBytes,fullpathdirectory
+
+-512,/dev
+
+Identify which of your Linux machines is using SysV Initialization.
+-Use either ps -elf | grep sysV
+or
+ps --no-headers -o comm 1
+or systemctl to verify 
+reference: https://superuser.com/questions/1017959/how-to-know-if-i-am-using-systemd-on-linux
+
+
+What are the maximum and minimum value a single Hexadecimal digit can contain?
+
+Enter the values in Linux Hexadecimal Numerical Constant form.
+0x0-0xF
+
+Locate the master boot record for one of the Linux machines and read it with xxd
+
+What programming language is the MBR written in?
+-assembly
