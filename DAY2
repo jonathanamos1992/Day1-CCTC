@@ -36,3 +36,43 @@ can be used with REGEX
 AWK
 -see examples and practice
 
+
+The file /home/bombadil/mbroken is a copy of an MBR from another machine.
+
+Hash the first partition of the file using md5sum. The flag is the hash.
+
+Solution:
+dd if=/dev/vda of=first_partition_16bytes.img bs=1 skip=446 count=16
+Explanation:
+if=/dev/vda: This is the source, the disk device you're reading from (in your case, it's /dev/vda).
+of=first_partition_16bytes.img: This specifies the output file where the data (the first 16 bytes of the first partition) will be saved.
+bs=1: This sets the block size to 1 byte, meaning we're copying byte-by-byte.
+skip=446: Skips the first 446 bytes. Since the partition starts at byte 446, this will start reading from there.
+count=16: This tells dd to copy exactly 16 bytes, starting at byte 446.
+Why bs=1?
+Since you only need 16 bytes (a very small amount), using bs=1 (byte-by-byte) allows you to precisely copy only the 16 bytes you're interested in, without overcomplicating the process or reading excess data.
+
+Identify the default run level on the SysV Init Linux machine.
+
+Flag format: #
+Solution:
+The file /etc/inittab is a text file that contains Run Level entries as variables read by /etc/init
+
+
+
+What is the last script to run when the command init 6 is executed?
+
+Flag format: /absolute/path
+
+NOTE: “Use the Minas_Tirith machine for this question.”
+
+soultion: cat /etc/inittab
+
+We know init 6 is reboot
+
+ls -lisa /etc/rc6.d
+
+we see 36958 0 lrwxrwxrwx  1 root root   16 Oct 13  2021 K08reboot -> ../init.d/reboot
+
+we know .. is back one level so the full path is /etc/rc6.d/init.d/reboot
+
