@@ -76,3 +76,9 @@ we see 36958 0 lrwxrwxrwx  1 root root   16 Oct 13  2021 K08reboot -> ../init.d/
 
 we know .. is back one level so the full path is /etc/rc6.d/init.d/reboot
 
+What run levels start the daemon that allows remote connections over port 22?
+
+Flag format: #,#,#,#
+
+We did ls -lisa to view the view scripts in the /etc/rc*.d directory and then looked for ssh for remote login
+
