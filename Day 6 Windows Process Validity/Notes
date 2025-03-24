@@ -1,0 +1,45 @@
+Windows Process Validity
+User Account Control
+SysInternals
+
+
+Sesson 0 ran by System
+get-process
+get-service to see services and processes
+Get-Service | Where-Object {$_.Status -eq 'Running'}
+Get-WMIObject
+
+Use CimInstance to get number of handles
+Lower level query
+
+
+Get-CimInstance with clas type
+
+Get-CimInstance Win32_Service 
+or 
+Get-CimInstance Win32_Process
+
+
+Get-Ciminstance Win32_service | Select Name, Processid, Pathname | ft -wrap
+will show command that was executed to get service running
+Get-Ciminstance Win32_service | Select Name, Processid, Pathname, ParentProcessID | ft -wrap
+
+Process ID of 4 is always System
+
+sc query
+
+sc /? 
+-help menu
+
+Task scheduler
+-trigger
+
+Autoruns
+
+
+Since most systems have internet access, connect to sysinternals live page that hosts all tools to create drive on computer to let you use sysinternals
+net use * http://live.sysinternals.com
+
+must be in drive or file location of where ssinternal tools are located or call upon absolute path
+
+Get-PSDrive to check
