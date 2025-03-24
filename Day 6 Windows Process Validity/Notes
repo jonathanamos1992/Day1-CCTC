@@ -43,3 +43,33 @@ net use * http://live.sysinternals.com
 must be in drive or file location of where ssinternal tools are located or call upon absolute path
 
 Get-PSDrive to check
+
+.procmon.exe
+
+./autoruns.exe
+-must be in sysinternals drive
+-autoruns enumerates
+
+Process Explorer
+-must be in sysinternals drive
+-live feed
+-breaks down into trees
+
+TCPVIEW
+
+
+PSExec
+-Powershell execute
+if in powershell and run PSExec, target a specific machine and with switches such as -s, can run at system level
+
+
+.\logonsessions.exe -p -accepteula
+-p show what processes each logon is using
+-must have -accepteula
+
+pslist \\file-server
+
+Strings
+-allow viewing of human readable text
+-also may have to use -accepteula
+
