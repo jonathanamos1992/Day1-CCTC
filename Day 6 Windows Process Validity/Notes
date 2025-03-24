@@ -40,7 +40,7 @@ Autoruns
 Since most systems have internet access, connect to sysinternals live page that hosts all tools to create drive on computer to let you use sysinternals
 net use * http://live.sysinternals.com
 
-must be in drive or file location of where ssinternal tools are located or call upon absolute path
+must be in drive or file location of where sysinternal tools are located or call upon absolute path
 
 Get-PSDrive to check
 
