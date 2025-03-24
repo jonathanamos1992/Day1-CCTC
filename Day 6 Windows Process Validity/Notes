@@ -73,3 +73,6 @@ Strings
 -allow viewing of human readable text
 -also may have to use -accepteula
 
+
+Malware uses names of legit processes to obfuscate itself. Give the flag located in Kerberos’ registry subkey.
+-Use Autoruns, go to services tab, right click on Kerberos to jump to location in file and when prompted, run as administrator. Then it takes you to registry key.
