@@ -5,11 +5,15 @@ ps -elf to see running processes
 htop -more dynamic in layout to see real time running processes. Live capture.
 -f5   tree
 ctrl-z or ctrl-c to exit out of htop
-
+-to move have to arrow key
+-F2 to sort columns
 
 top
 -shift -v hierarchical view
 -f add or remove items
+-to move have to arrow key
+
+
 
 /sbin/init
 -spawns all user processes
@@ -21,3 +25,41 @@ PID of 1
 [kthreadd]
 -spwans all kernel processes
 PID of 2
+
+ps --ppid 2 -lf
+Displays only kthreadd processes
+
+zombie processes
+-do not consume resources but have a PID
+
+SystemV 
+-uses service command
+
+SystemD
+-uses systemctk 
+
+Cron
+-Scheduled tasks
+
+if system cronjob, located in /etc/crontab
+
+if user
+command 'crontab' command to create user cronjons
+user cron jobs stored in /var/spool/cron/crontabs/
+
+sudo lsof | tail -30
+-list of file descriptors
+
+ex. sudo lsof | grep init
+
+File Descriptors
+
+txt
+mem
+#r (read)
+#w (write)
+#u (read & write)
+
+when you have running processes,find exe -> <file>
+
+will tell you what actually binary being executed is
