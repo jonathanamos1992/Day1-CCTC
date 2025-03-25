@@ -63,3 +63,15 @@ mem
 when you have running processes,find exe -> <file>
 
 will tell you what actually binary being executed is
+
+
+Identify the names of the orphan processes on the SysV system.
+
+NOTE: Remember, orphan processes spawn and die periodically. Try monitoring the processes list with top or htop to find them.
+Solution:
+use htop to see dynamic processes, live processes running
+use F2 and navigate to add PPID, esc to exit
+Wait for processes to child items and delete itself, eaving child processes to be adopted by init
+
+
+
