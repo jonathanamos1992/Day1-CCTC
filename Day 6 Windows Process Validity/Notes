@@ -76,3 +76,13 @@ Strings
 
 Malware uses names of legit processes to obfuscate itself. Give the flag located in Kerberos’ registry subkey.
 -Use Autoruns, go to services tab, right click on Kerberos to jump to location in file and when prompted, run as administrator. Then it takes you to registry key.
+ What are the permissions for NT SERVICE\TrustedInstaller on spoolsv.exe? Copy the permissions from your shell.
+
+HINT: Use Sysinternals tools.
+-USed process explorer, searched for spools and followed trail down to properties, then explorer button to then followed until I could see permissions
+
+In what Load Order Group is the Windows Firewall service?
+
+HINT: Use Sysinternals tools.
+-Solution
+Get-ItemProperty "HKLM:\System\CurrentControlSet\Services\mpssvc\"
