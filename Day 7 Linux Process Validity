@@ -1,0 +1,23 @@
+Process validity
+
+ps -elf to see running processes
+
+htop -more dynamic in layout to see real time running processes. Live capture.
+-f5   tree
+ctrl-z or ctrl-c to exit out of htop
+
+
+top
+-shift -v hierarchical view
+-f add or remove items
+
+/sbin/init
+-spawns all user processes
+PID of 1
+
+
+
+
+[kthreadd]
+-spwans all kernel processes
+PID of 2
