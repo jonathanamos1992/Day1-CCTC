@@ -1,4 +1,4 @@
-Windows Process Validity
+reWindows Process Validity
 User Account Control
 SysInternals
 
@@ -71,7 +71,7 @@ pslist \\file-server
 
 Strings
 -allow viewing of human readable text
--also may have to use -accepteula
+-also may have to use -accepteula *make sure just (1) - for accepteula
 
 
 Malware uses names of legit processes to obfuscate itself. Give the flag located in Kerberos’ registry subkey.
