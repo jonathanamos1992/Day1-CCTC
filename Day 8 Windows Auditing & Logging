@@ -38,7 +38,7 @@ to query specific user, query sid specific
 
 * Recycle Bin
 Recycle bin exists in C drive
-in Powershell to use reccle bin, have to use quotes
+in Powershell to use recycle bin, have to use quotes
 to see contents, have use use -Force
 In recycle bin, will see diffrerent SIDS for each system
 
@@ -129,9 +129,12 @@ Transcripts
 every action performed and results from action
 can view history (only applies to current session you're in)
 
+Search directory in Powershell
+Get-ChildItem -Path C:\ -Filter hosts -Recurse -ErrorAction SilentlyContinue -Force
 
 
 
 
-
+Get local user on PowerShell
+Get-LocalUser | select Name,SID
 
