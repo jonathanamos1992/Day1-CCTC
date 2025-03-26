@@ -1,0 +1,48 @@
+4 Types of logs
+setup, application, system, security
+
+important to know SIDS
+Get-LocalUser | select Name,SID 
+
+
+UserAssist - registry key tracks the GUI-based programs that were ran by a particular user
+if want to view other users, have to use HKU
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{GUID}\Count\
+CEBFF5CD-ACE2-4F4F-9178-9926F41749EA
+F4E57C4B-2036-45F0-A9AB-443BCFE33D9F
+
+have to use CyberChef
+Looking gor actual files or exe's ran
+
+only tracks GUI applications
+
+Windows Background Activity Moderator (BAM)
+
+different versions of windows have different registry locations
+C:\WINDOWS\system32>systeminfo
+OS  version line to get build # and cross check against list to get version at see if it is newer or older than 1809
+
+or check to see HKEY path to see if HKEY_LOCAL_MACHINE\..\..\bam\State #On 1809 and newer
+or .
+\bam\User # on 1803 and below
+
+Steps:
+Get-Item HKLM:\SYSTEM\CurrentControlSet\Services\bam\state\UserSettings\*
+-get everything in file
+
+will see sids and who has things open
+
+to query specific user, query sid specific
+
+
+
+Recycle Bin
+
+Prefetch
+
+Jump Lists
+
+Recent Files
+
+Browser Artifacts
+
