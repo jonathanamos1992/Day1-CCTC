@@ -5,7 +5,7 @@ important to know SIDS
 Get-LocalUser | select Name,SID 
 
 
-UserAssist - registry key tracks the GUI-based programs that were ran by a particular user
+ * UserAssist - registry key tracks the GUI-based programs that were ran by a particular user
 if want to view other users, have to use HKU
 HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{GUID}\Count\
 CEBFF5CD-ACE2-4F4F-9178-9926F41749EA
@@ -16,7 +16,7 @@ Looking gor actual files or exe's ran
 
 only tracks GUI applications
 
-Windows Background Activity Moderator (BAM)
+* Windows Background Activity Moderator (BAM)
 
 different versions of windows have different registry locations
 C:\WINDOWS\system32>systeminfo
@@ -36,7 +36,7 @@ to query specific user, query sid specific
 
 
 
-Recycle Bin
+* Recycle Bin
 Recycle bin exists in C drive
 in Powershell to use reccle bin, have to use quotes
 to see contents, have use use -Force
@@ -48,7 +48,7 @@ $R - gets content of what is in the file
 only applies to files deleted fromthe GUI
 Deleting from command line also deletes it from recycle bin
 
-Prefetch
+* Prefetch
 -looking for .PF extensions
 like cookies
 whenever you access something ex. files, executables, prefetch loads data/files faster
@@ -62,7 +62,7 @@ runas /profile /user:Administrator
 
 
 
-Jump Lists
+* Jump Lists
  frequently accessed files
 start menu, recently run programs
 
@@ -84,14 +84,14 @@ look for .exe .txt or other extensions
 
 
 
-Recent Files
+* Recent Files
 Recently accessed files
 
 to read inside, use .net framework 
 
 
 
-Browser Artifacts
+* Browser Artifacts
 URLS
 Current Sessions
 Top Sites
@@ -105,3 +105,33 @@ top sites
 web data
 
 have to use strings to pull strings
+
+* Event logs
+All event files have .evtx
+
+Can use Windows Event Viewer GUI
+focus on secruity and system logs
+
+Powershell 
+Get-EventLog -LogName -Security
+
+Get-WinEvent -LogName Security | Select -First 5 | ft -wrap
+
+command prompt:
+
+wevttil
+windows event utility
+
+Can use findstr command
+
+* Powershell Artifacts
+Transcripts
+every action performed and results from action
+can view history (only applies to current session you're in)
+
+
+
+
+
+
+
