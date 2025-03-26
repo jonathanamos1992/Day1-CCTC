@@ -37,12 +37,71 @@ to query specific user, query sid specific
 
 
 Recycle Bin
+Recycle bin exists in C drive
+in Powershell to use reccle bin, have to use quotes
+to see contents, have use use -Force
+In recycle bin, will see diffrerent SIDS for each system
+
+$I - location of where it was stored before deletion
+$R - gets content of what is in the file
+
+only applies to files deleted fromthe GUI
+Deleting from command line also deletes it from recycle bin
 
 Prefetch
+-looking for .PF extensions
+like cookies
+whenever you access something ex. files, executables, prefetch loads data/files faster
+C:\Windows\Prefetch
+
+whenever you check paths, you'll see .DB which are also prefetch files
+-prefetch files are not true files
+
+
+runas /profile /user:Administrator
+
+
 
 Jump Lists
+ frequently accessed files
+start menu, recently run programs
+
+for location:
+
+C:\%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations
+
+can use * for multiple or specific user name
+-to see jump lists
+
+look for AutomaticDestinations-ms
+
+cat or get-content to read
+
+use strings to parse
+may have to use sysinternals on other drive
+
+look for .exe .txt or other extensions
+
+
 
 Recent Files
+Recently accessed files
+
+to read inside, use .net framework 
+
+
 
 Browser Artifacts
+URLS
+Current Sessions
+Top Sites
+-accepteula
 
+
+after finding location
+
+history
+top sites
+web data
+
+have to use strings to pull strings
