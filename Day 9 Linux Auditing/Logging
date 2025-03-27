@@ -1,0 +1,92 @@
+3 Types of Logs
+Atuhentication, Application, System
+
+
+Linux Logging Daemons
+-Syslog Daemon
+-rsyslogd config file
+-standard sys logging
+-stored in /var/log
+-configured in /etc/rsyslog
+
+cron.* /var/log/cron.log
+cron.                *             /var/log/cron.log
+facility       severity                log location
+
+Syslog Message Severities
+0-7
+Lower the number, higher the severity
+
+mail.info
+-greater than lor equal to
+
+with ! symbol
+-everything 
+only less than
+
+
+
+in /etc/rsyslog 
+
+
+journald
+-systemd logging
+
+RFC 5424
+-dedicated page to explain functionality of tool or software
+
+both services store services in /var/log
+
+/var/log/msgs
+-legacy, obsolete
+
+
+filtering syslog log files
+
+log rotation
+-/etc/logrotate.conf
+set up a file to rotateit's log
+creates log and then creates a zip file
+
+Types of logs
+
+Authentication logs
+-stored in /var/log/auth.log
+
+/var/run/utmp -users that are cuently logged in
+
+/var/log/wtmp - history of utmp
+
+/var/log/bmtp - failed login attempts
+
+not in human readable format so need to read with last
+
+Application
+-Any logs having to do with programs   - ./var/log/mysql.log
+
+
+
+Journald
+-*.units
+
+-alternatives found on systemd machines
+
+journalctl -e    
+-shows most recent
+
+journalctl --list-boots
+
+journalctl -u ssh
+
+systemd-journald.service
+
+Log Formats
+-
+<header> Hello </header>
+
+Xpath 
+for XML
+
+xpath -q -e '//element/@attribute' file.xml
+
+
