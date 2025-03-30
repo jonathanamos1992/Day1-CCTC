@@ -21,3 +21,9 @@ Get-ADUser -Identity 'Nina,Webster' | Format-List *
 
 
 sidenote .NET framework & being able to execute programs
+
+Finding a user based on property. In this case it was a phone number.
+
+ $partial = "336-6754"
+PS C:\Users\andy.dwyer> Get-ADUser -Filter "telephoneNumber -like '*$partial*' -or mobile -like '*$partial*' -or otherTelephone -like '*$partial*'" -Properties telephoneNumber, mobile, otherTelephone | Select-Object Name, telephoneNumber
+, mobile, otherTelephone
