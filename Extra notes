@@ -1,0 +1,7 @@
+Extra notes 
+
+
+sudo find / -type d -name Balogna
+   #finds directory named "Balogna"
+sudo find / -name *.sh | grep -r ".txt"
+         #searches all .sh (bash scripts) that contain ".txt" inside of it.
