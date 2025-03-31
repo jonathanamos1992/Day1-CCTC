@@ -1,0 +1,15 @@
+Windows_Active_Directory_Basics7-10
+How many users are members of the Domain Admins group?
+answer was 1 but output said 2
+
+$users = @(Get-ADGroupMember -Identity 'Domain Admins')
+$users.count
+
+
+
+Windows_PowerShell_Basics_9
+10
+How many methods are available for the get-process cmdlet?
+ 19
+
+
