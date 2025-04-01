@@ -5,3 +5,23 @@ sudo find / -type d -name Balogna
    #finds directory named "Balogna"
 sudo find / -name *.sh | grep -r ".txt"
          #searches all .sh (bash scripts) that contain ".txt" inside of it.
+
+
+to find this in services, I had to change directories to:
+
+/lib/systemd/system
+
+
+
+
+Linux Persistence
+/lib/systemd/system
+/usr/lib/systemd/system
+/etc/systemd/system
+/run/systemd/system
+
+/etc/systemd/user
+~/.config/systemd/user
+~/.local/share/systemd/user
+/run/systemd/user
+/usr/lib/systemd/user
