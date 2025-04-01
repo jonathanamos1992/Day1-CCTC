@@ -25,3 +25,24 @@ Linux Persistence
 ~/.local/share/systemd/user
 /run/systemd/user
 /usr/lib/systemd/user
+
+
+#count unique words in a file 
+
+# Path to the file
+$filePath = "C:\Path\To\Your\File.txt"
+
+# Read the file content
+$content = Get-Content $filePath -Raw
+
+# Split content into words, ignoring punctuation and making all words lowercase
+$words = $content -split '\W+' | ForEach-Object { $_.ToLower() } | Where-Object { $_ -ne "" }
+
+# Get unique words
+$uniqueWords = $words | Sort-Object -Unique
+
+# Count unique words
+$uniqueCount = $uniqueWords.Count
+
+# Output the result
+Write-Output "Number of unique words: $uniqueCount"
