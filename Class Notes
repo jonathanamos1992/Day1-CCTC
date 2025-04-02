@@ -1,9 +1,60 @@
-Scenario based, omething bad happened...persistence
+Scenario based, something bad happened...persistence
 
 Powershell Day 1
 Powershell profiles
 scripts, all users all hosts
 ran when powershell opens
+
+#Powershell Commands#
+
+#Show system info	  Get-ComputerInfo
+#Show OS version	  Get-CimInstance -ClassName Win32_OperatingSystem
+#Show running processes	  Get-Process
+#Show services  	Get-Service
+#Show installed   hotfixes	Get-HotFix
+#List files in directory	Get-ChildItem
+#List local users	  Get-LocalUser
+#List local groups	  Get-LocalGroup
+#Add a user to a group	  Add-LocalGroupMember -Group "Administrators" -Member "username"
+#List all cmdlets	  Get-Command
+#Search for commands	  Get-Command *service*
+#Get help for a command	  Get-Help Get-Service
+#Update help files	  Update-Help
+
+#Usernames and corresponding SIDS
+Get-LocalUser | Select-Object Name, SID
+
+#Domain
+Get-ADUser -Filter * -Property SID | Select-Object Name, SID
+
+
+Powershell Profiles
+
+Profile Type	Example Use
+All Users, All Hosts	Set proxy or environment vars for all users.
+All Users, Current Host	Customize ISE settings for everyone.
+Current User, All Hosts	Add personal aliases and functions.
+Current User, Current Host	Make your console window blue only for you.
+
+#Can check with Get-Content $Profile
+
+#What to Look For (Defensive Side)
+Here’s how to detect abuse:
+
+Check if the profile file exists:
+
+Test-Path $PROFILE
+View its contents:
+
+Get-Content $PROFILE
+Watch for signs of persistence, such as:
+
+Invoke-WebRequest / iex
+Encoded payloads (FromBase64String)
+Start-Process, Add-Type, New-Object Net.WebClient
+C2 (command and control) references
+
+
 
 
 
@@ -12,9 +63,26 @@ Run keys   Run/RunOnce
 HKLM and HKU or HKCU
 
 
+#View a registry key
+#Use Get-Item to look at a registry key (like viewing a folder):
+Get-Item "HKLM:\Software\Microsoft\Windows\CurrentVersion"
+
+#List Values Under a Registry Key
+Get-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion"
+
+#Check a Specific Registry Value
+(Get-ItemProperty "HKCU:\Control Panel\Desktop").Wallpaper
+
+
+
 Alternate Data Streams
 Obfuscation
 Can be used to obfuscate exploit but need someting to run it
+Windows:
+
+Dir /R
+
+
 
 Linux Essentials
 Permissions on files and folders
