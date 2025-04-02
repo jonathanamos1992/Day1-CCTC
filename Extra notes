@@ -51,3 +51,7 @@ Write-Output "Number of unique words: $uniqueCount"
 While examining the Windows Defender Firewall, what is the LogAllowedConnections setting set to, for the Public profile?
 #see firewall configurations
 -netsh advfirewall show currentprofile
+
+
+#get parent process id from pid
+C:\> wmic process get processid,parentprocessid,executablepath|find "process id goes here"
