@@ -1,0 +1,100 @@
+Scenario based, omething bad happened...persistence
+
+Powershell Day 1
+Powershell profiles
+scripts, all users all hosts
+ran when powershell opens
+
+
+
+Windows Registry
+Run keys   Run/RunOnce
+HKLM and HKU or HKCU
+
+
+Alternate Data Streams
+Obfuscation
+Can be used to obfuscate exploit but need someting to run it
+
+Linux Essentials
+Permissions on files and folders
+Something to pay attention to, wanting to change directories but could not due to permissions, no sudo cd but there is sudo ls. File and folder permissions
+
+Windows Boot Process
+Did not dive into BCDedit, don't go down path of topics not discussed in class
+Nor DLLInjections
+Nor binary analysis
+
+if need to can use strings in Linux and sysinternals on Windows
+
+Linux Boot Process
+
+Run Levels and Run Scripts
+Init scripts in 
+/etc/init
+/etc/inittab 
+/etc/rc.S
+
+no looking in /sbin/init
+
+
+Section 7.2
+Bash profiles
+/etc/enviornmental profiles
+/etc/enviornment
+/etc/profile
+/etc/bash
+
+Windows Process Validity
+
+Scheduled Tasks
+-Services may be running or stopped
+-Look at triggering mechanism and what it does
+-looking if its a verfied process for what it's expected to be
+-name is not important
+
+
+Services
+-find a bad executable, find what started it, or example svchost, trace parent process
+
+
+Network Connections
+Using a suspicious port, repeating numbers, ascending or descending numbers
+
+UAC
+-privilege escalation
+
+Linux Process Validity
+-Cron Jobs
+-Configuration files 
+/var/spool/cron   -contains usernames
+/etc/cron.d
+/etc/crontab
+
+tools to identify parent processes
+-htop or pstree
+
+just becasue it's running bash and something else is above it, may not be bad
+if it's something that should be on the machine. not bad
+
+
+Windows Auditing and Logging
+Artifacts - things left behind
+
+Need to know env and what should be running
+
+going to be on a DoD/government computer
+
+Should be running from program files or system32
+
+Since we do not have to use sysinternals, we can leave out Browser Artifacts
+
+Linux Auditing and Logging
+
+Memory Analysis
+
+Active Directory
+If needed, module but with 2 machines, not going to use Active Directory
+
+
+
