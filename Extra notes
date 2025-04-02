@@ -55,3 +55,7 @@ While examining the Windows Defender Firewall, what is the LogAllowedConnections
 
 #get parent process id from pid
 C:\> wmic process get processid,parentprocessid,executablepath|find "process id goes here"
+
+
+#don't use this
+jq -r '.id.orig_h' /home/garviel/conn.log | sort -u
