@@ -46,3 +46,8 @@ $uniqueCount = $uniqueWords.Count
 
 # Output the result
 Write-Output "Number of unique words: $uniqueCount"
+
+
+While examining the Windows Defender Firewall, what is the LogAllowedConnections setting set to, for the Public profile?
+#see firewall configurations
+-netsh advfirewall show currentprofile
