@@ -108,6 +108,16 @@ Linux Essentials
 Permissions on files and folders
 Something to pay attention to, wanting to change directories but could not due to permissions, no sudo cd but there is sudo ls. File and folder permissions
 
+Find_Evil Persistence
+Used htop, saw communcations being sent, looked and saw chant being sent. 
+Looked at last comm/bottom of tree to see who was the last to recieve communcation, also saw IP and port number.
+
+
+
+
+
+
+
 Windows Boot Process
 Did not dive into BCDedit, don't go down path of topics not discussed in class
 Nor DLLInjections
