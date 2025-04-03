@@ -112,10 +112,33 @@ Find_Evil Persistence
 Used htop, saw communcations being sent, looked and saw chant being sent. 
 Looked at last comm/bottom of tree to see who was the last to recieve communcation, also saw IP and port number.
 
+sudo find / -type d -name Balogna
+   #finds directory named "Balogna"
+sudo find / -name *.sh | grep -r ".txt"g
+         #searches all .sh (bash scripts) that contain ".txt" inside of it.
+
+ps -elf, systemctl 
 
 
+#List all active services
+systemctl list-units --type=service
 
+or
 
+systemctl list-unit-files --type=service
+
+or find /etc/systemd/system /lib/systemd/system -name '*.service'
+
+#Check the status of a specific service:
+systemctl status <sshd>
+
+#List only running services
+systemctl --type=service --state=running
+
+service --status-all
+
+#Check what init system you’re using
+ps -p 1 -o comm=
 
 
 Windows Boot Process
@@ -129,27 +152,100 @@ Linux Boot Process
 
 Run Levels and Run Scripts
 Init scripts in 
-/etc/init
+/etc/init     Used by SysVinit systems (older distros).
+
+              Defines what runs at different runlevels.
+
+              Look for unusual lines like:
+
+
+
 /etc/inittab 
-/etc/rc.S
+
+
+
+/etc/rc.S        Used by SysVinit and older init systems.
+
+                Files like /etc/rc.local, /etc/rc0.d/, /etc/rc1.d/ etc.
+
+                Scripts in these folders run at specific runlevels.
+
+                /etc/rc.local (if executable) is a classic persistence method.
 
 no looking in /sbin/init
 
 
 Section 7.2
 Bash profiles
+User startup files (per-user persistence)
+Files to check in user home directories:
+
 /etc/enviornmental profiles
 /etc/enviornment
 /etc/profile
 /etc/bash
 
+Also may be
+~/.bashrc
+~/.bash_profile
+~/.profile
+
+#rc.d scripts     check for malicious entries or scripts added manually
+
+#Checklist for PErsistence if needed
+
+/etc/init/	Upstart jobs
+/etc/inittab	SysVinit runlevel commands
+/etc/rc.local	Script run at boot
+/etc/rc*.d/	SysVinit startup scripts
+/etc/systemd/system/	systemd service units (modern distros)
+/etc/crontab	System-wide scheduled tasks
+/var/spool/cron/	User-specific crontabs
+~/.bashrc, ~/.profile	User persistence
+~/.config/autostart/	Desktop environments (GUI)
+
 Windows Process Validity
+
+#Windows SYSINTERNALS
+
+#command
+net use * http://live.sysinternals.com
+
+PROCMON  -   real-time File System, Registry and Process/Thread activity
+AUTORUNS  -   shows applications automatically started on during system boot or login as well as the Registry and file system locations for auto-start configurations
+PROCEXP  -    task manager and system monitor which collects information on running processes with such features as Hierarchical view of processes, live CPU activity, ability to kill and suspend processes, display DLLs loaded, create process dumps, display handles and much more
+TCPView -    show you detailed listings of all TCP and UDP endpoints on your system, including the local and remote addresses and state of TCP connections
+PsExec  -  lets you execute processes on other systems, complete with full interactivity for console applications, without having to manually install client software
+PsLoggedon - list users that are logged on currently to a system
+LogonSessions  -   loggonsessions shows how that user logged on
+PsList  -  Analyze Windows processes using PsList on local or remote systems
+PsInfo - Gathers key system information from both local and remote systems.
+Strings  -  Analyze Windows files using Strings
+Handle  -  Analyze Windows handles process using Handle
+
+
+
+
 
 Scheduled Tasks
 -Services may be running or stopped
 -Look at triggering mechanism and what it does
 -looking if its a verfied process for what it's expected to be
 -name is not important
+
+#List all scheduled tasks
+schtasks /query /fo LIST /v
+PS: Get-ScheduledTask
+
+#List a specific task
+schtasks /query /tn "\Microsoft\Windows\Defrag\ScheduledDefrag"
+PS: Get-ScheduledTask -TaskName "MyTask" | Get-ScheduledTaskInfo
+
+#Find task created by a specific user
+schtasks /query /fo LIST /v | findstr "User:"
+
+#Get tasks and full path
+Get-ScheduledTask | Select TaskName, TaskPath, State
 
 
 Services
@@ -194,5 +290,33 @@ Memory Analysis
 Active Directory
 If needed, module but with 2 machines, not going to use Active Directory
 
+#Preventing a scheduled restart
+#Cancel a Scheduled Restart
+Shutdown /a
+
+#Disable Automatic Restart from Windows Update (Temporarily)
+#Prevents automatic restart if a user is logged in
+PS: reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoRebootWithLoggedOnUsers /t REG_DWORD /d 1 /f
+
+#Stop a Pending Restart via Services (risky workaround)
+#You can stop Windows Update service, which sometimes blocks restarts
+net stop wuauserv
+
+#bootcfg, bcdedit (for changing boot options)
+#Check bcdedit output for strange boot paths or options
 
 
+Reset to Default Boot Loader
+bcdedit /set {default} path \Windows\System32\winload.efi
+
+#Powershell .dll's
+#5.1
+System.Management.Automation.dll
+Microsoft.PowerShell.Commands.Management.dll
+Microsoft.PowerShell.ConsoleHost.dll
+Microsoft.PowerShell.Security.dll
+
+#7+
+System.Management.Automation.dll
+Microsoft.PowerShell.Commands.Utility.dll
+pwsh.dll
