@@ -63,6 +63,12 @@ Run keys   Run/RunOnce
 HKLM and HKU or HKCU
 
 
+#Powershell
+Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" | Select-Object EnableLUA
+
+#CMD
+reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v EnableLUA
+
 #View a registry key
 #Use Get-Item to look at a registry key (like viewing a folder):
 Get-Item "HKLM:\Software\Microsoft\Windows\CurrentVersion"
@@ -72,6 +78,20 @@ Get-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion"
 
 #Check a Specific Registry Value
 (Get-ItemProperty "HKCU:\Control Panel\Desktop").Wallpaper
+
+
+#Get SID from Service Name or Display Name
+Step 1: (Optional) Convert display name to service name
+If you only have the display name, convert it first:
+- $displayName = "Windows Update"  # Replace with your display name
+$serviceName = Get-WmiObject -Class Win32_Service | Where-Object { $_.DisplayName -eq $displayName } | Select-Object -ExpandProperty Name
+
+Step 2: Build the NT SERVICE account name
+-$ntAccount = "NT SERVICE\$serviceName"
+
+Step 3: Translate it to a SID
+-$sid = (New-Object System.Security.Principal.NTAccount($ntAccount)).Translate([System.Security.Principal.SecurityIdentifier])
+$sid.Value
 
 
 
